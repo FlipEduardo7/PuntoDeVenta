@@ -20,9 +20,17 @@ export class EliminarComponent implements OnInit {
     this.producto = new Producto("","","",0,0,0);
    // console.log("onInit register ");
   }
-  onSubmit(form){
+  /*onSubmit(form){
     this.database.delete_producto(this.producto);
     this.router.navigate(['/productos']);
-	}
+  }*/
+  
+  delete_producto(producto){
+    const response = confirm('Are you sure you want to delete');
+    if(response){
+      this.database.delete_producto(this.producto);
+      this.router.navigate(['/productos']);
+    }
+  }
 
 }

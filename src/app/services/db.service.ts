@@ -42,31 +42,28 @@ export class DbService {
     localStorage.setItem('database', JSON.stringify(db));
   }  
 
-  delete_producto(producto){
-    let clave = producto.clave;
+  delete_producto(producto:Producto){
     var retrievedObject = localStorage.getItem('database');
     var db = JSON.parse(retrievedObject);
-    let fw = db.productos.indexOf(producto);
-    let ch;
-    console.log(clave);
-
-    for(let i=0; i<db.productos.length; i++){
-      if(db.productos[i]['costo'] == clave){
-        ch = i;
+    for(let prod of db.productos){
+      if(prod.clave == producto.clave){
+        const index = db.productos.indexOf(prod,0);
+        if(index > -1){
+          db.productos.splice(index,1);
+        }
       }
-    }
-    console.log(ch);
-    db.productos.splice(ch,1);//lo elimine
 
-   
-   /* console.log(fw);
-    console.log(fw.costo);
-    if(fw.costo == 0){*/
-      //db.productos.splice(fw,1);//lo elimine
-    /*}
-    else{ 
-      alert('No se puede eliminar este producto');
+    }
+
+    /*var retrievedObject = localStorage.getItem('database');
+    var db = JSON.parse(retrievedObject);
+
+    for(let i=0; db.productos.length; i++){
+      if(producto == db.productos[i]){
+        db.productos.splice(i,1);
+      }
     }*/
+  
     localStorage.setItem('database', JSON.stringify(db));
   }
 
