@@ -19,8 +19,8 @@ export class ModificarComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form){
-    this.database.show_producto_form(this.producto.clave);
-    this.database.show_producto_form(this.producto);
+    this.database.show_form(this.producto.clave);
+    this.database.show_form(this.producto);
     this.router.navigate(['/productos']);
 }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Cliente, Producto } from '../models/schemadb';
 
 @Injectable({
@@ -54,25 +55,24 @@ export class DbService {
       }
 
     }
-
-    /*var retrievedObject = localStorage.getItem('database');
-    var db = JSON.parse(retrievedObject);
-
-    for(let i=0; db.productos.length; i++){
-      if(producto == db.productos[i]){
-        db.productos.splice(i,1);
-      }
-    }*/
-  
     localStorage.setItem('database', JSON.stringify(db));
   }
 
-  show_producto_form(producto){
+  show_form(producto){
     var retrievedObject = localStorage.getItem('database');
     var db = JSON.parse(retrievedObject);
-    let fw = db.productos.indexOf(producto);
-    db.productos.splice(fw,1);
-    localStorage.setItem('database', JSON.stringify(db));
+
+   // let clave = document.getElementById('clave');
+   // let desc = document.getElementById('desc');
+   // let clasif = document.getElementById('clasif');
+   // let stock = document.getElementById('stock');
+   // let costo = document.getElementById('costo');
+   // let precio = document.getElementById('precio');
+
+    
+
+
+    //localStorage.setItem('database', JSON.stringify(db));
   }
 
 }
